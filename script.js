@@ -11,7 +11,7 @@ const sceneInfo = [
   {
     title: "Scene 1: Top 10 Artists of 2024",
     subtitle: "These artists dominated the streaming charts this year.",
-    takeaway: "These ten artists shaped the soundscape of 2024."
+    takeaway: ""
   },
   {
     title: "Scene 2: Monthly Streaming Trends & Top Platform",
@@ -134,7 +134,7 @@ function scene1() {
     .sort((a, b) => d3.descending(a[1], b[1]))
     .slice(0, 10);
 
-  console.log("Top artist annotation:", topArtists[0]);
+  // console.log("Top artist annotation:", topArtists[0]);
 
   const x = d3
     .scaleLinear()
