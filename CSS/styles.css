@@ -1,0 +1,195 @@
+:root {
+  --color-main: #286fb4;       /* GREEN-BLUE */
+  --color-accent: #dfac73;     /* FANDANGO PINK */
+  --color-bg: #e2f0f9;         /* GLITTER */
+  --color-button: #b0dde4;     /* POWDER BLUE */
+  --color-text-dark: #333;
+  --color-text-muted: #444;
+  --font-main: sans-serif;
+}
+
+/* === Base === */
+body, button, #tooltip, #scene-title, #scene-info h2 {
+  font-family: var(--font-main);
+  color: var(--color-main);
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-bg);
+}
+
+/* === Layout Containers === */
+#container {
+  width: 90%;
+  max-width: 960px;
+  margin: auto;
+  padding-top: 20px;
+}
+
+#viz {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0;
+  overflow-x: auto;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* === Header === */
+#header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#header h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+/* === Scene Titles & Subtitles === */
+#scene-title {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+#scene-subtitle {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  margin-bottom: 10px;
+}
+
+/* === Scene Info === */
+#scene-info h2 {
+  font-size: 1.5rem;
+  margin: 5px 0;
+}
+
+#scene-info p {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  margin: 5px 0;
+}
+
+/* === Buttons === */
+#controls {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+button {
+  background-color: var(--color-button);
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  min-width: 120px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+  background-color: var(--color-accent);
+  color: white;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 500px) {
+  button {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+/* === Tooltip === */
+#tooltip {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 10px 14px;
+  font-size: 14px;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  pointer-events: none;
+  max-width: 250px;
+  line-height: 1.4;
+}
+
+/* === Intro Narrative Box === */
+#narrative-intro {
+  background-color: #f9f9f9;
+  border-left: 5px solid var(--color-main);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--color-text-dark);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* === Scene Visibility === */
+.scene {
+  display: none;
+}
+.scene.active {
+  display: block;
+}
+
+/* === Intro Section Styles === */
+.scene0-container {
+  background-color: var(--color-bg);
+  padding: 30px;
+  margin: 40px auto;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 850px;
+  text-align: center;
+}
+
+.scene0-takeaway {
+  font-size: 18px;
+  line-height: 1.6;
+  font-style: normal;
+}
+
+.intro-label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #1a3d66;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* === General Text Blocks in #viz === */
+#viz p {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 1rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--color-text-dark);
+  text-align: center;
+}
+
+/* === Utility === */
+.responsive-svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.hidden {
+  display: none;
+}
