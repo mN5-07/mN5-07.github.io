@@ -1,44 +1,32 @@
 import { Badge } from './ui/badge';
 import { Card } from './ui/card';
-import { BarChart3, Database, Code, Brain, TrendingUp, FileSpreadsheet } from 'lucide-react';
+import { Code, Database, BarChart3, Table } from 'lucide-react';
 
 export function Skills() {
   const skillCategories = [
     {
       icon: Code,
-      title: 'Programming Languages',
-      skills: ['Python', 'R', 'SQL', 'Julia', 'Scala'],
+      title: 'Programming & Languages',
+      skills: ['Python', 'C++', 'SQL'],
       color: 'bg-blue-100 text-blue-700',
     },
     {
-      icon: Database,
-      title: 'Data Engineering',
-      skills: ['PostgreSQL', 'MongoDB', 'Apache Spark', 'Airflow', 'ETL Pipelines'],
-      color: 'bg-green-100 text-green-700',
-    },
-    {
-      icon: Brain,
-      title: 'Machine Learning',
-      skills: ['Scikit-learn', 'TensorFlow', 'PyTorch', 'XGBoost', 'Neural Networks'],
+      icon: BarChart3,
+      title: 'Data Analytics & Visualization',
+      skills: ['Power BI', 'Tableau', 'Excel', 'Jupyter', 'Seaborn', 'Matplotlib'],
       color: 'bg-purple-100 text-purple-700',
     },
     {
-      icon: BarChart3,
-      title: 'Data Visualization',
-      skills: ['Tableau', 'Power BI', 'Matplotlib', 'Plotly', 'D3.js'],
+      icon: Database,
+      title: 'Databases & Cloud',
+      skills: ['PostgreSQL', 'MySQL'],
+      color: 'bg-green-100 text-green-700',
+    },
+    {
+      icon: Table,
+      title: 'Data Processing',
+      skills: ['pandas', 'NumPy', 'SQLAlchemy', 'Excel Power Query', 'OpenRefine'],
       color: 'bg-orange-100 text-orange-700',
-    },
-    {
-      icon: TrendingUp,
-      title: 'Statistical Analysis',
-      skills: ['Hypothesis Testing', 'Regression', 'Time Series', 'A/B Testing', 'Bayesian Methods'],
-      color: 'bg-red-100 text-red-700',
-    },
-    {
-      icon: FileSpreadsheet,
-      title: 'Tools & Platforms',
-      skills: ['Jupyter', 'Git', 'Docker', 'AWS', 'Google Cloud'],
-      color: 'bg-teal-100 text-teal-700',
     },
   ];
 
@@ -48,11 +36,11 @@ export function Skills() {
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl mb-4 text-gray-900">Technical Skills</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            A comprehensive toolkit for end-to-end data analysis and machine learning projects
+            A comprehensive toolkit for data analysis, visualization, and software development
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8">
           {skillCategories.map((category, index) => {
             const Icon = category.icon;
             return (

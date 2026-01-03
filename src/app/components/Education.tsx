@@ -5,30 +5,29 @@ import { Badge } from './ui/badge';
 export function Education() {
   const education = [
     {
-      degree: 'Master of Science in Data Science',
-      institution: 'University Name',
-      period: '2023 - Present',
-      description: 'Focused on advanced statistical methods, machine learning algorithms, and big data technologies. Conducting research in predictive analytics and data-driven decision making.',
+      degree: 'Master\'s in Computer Science',
+      institution: 'University of Illinois Urbana-Champaign',
+      period: 'Jan. 2025 - Current',
+      description: 'Pursuing advanced degree with focus on data science, machine learning, and software engineering principles.',
       coursework: [
-        'Statistical Learning',
+        'Data Structures',
+        'Algorithms',
         'Machine Learning',
-        'Data Mining',
-        'Big Data Analytics',
-        'Data Visualization',
-        'Deep Learning',
+        'Database Systems',
+        'Statistical Computing',
       ],
       icon: GraduationCap,
     },
     {
-      degree: 'Bachelor of Science',
-      institution: 'University Name',
-      period: '2018 - 2022',
-      description: 'Built strong analytical and quantitative foundation. Developed critical thinking and problem-solving skills essential for data analysis.',
+      degree: 'B.S. in Computer Science',
+      institution: 'High Point University',
+      period: 'Aug. 2020 - May 2024',
+      description: 'Built strong foundation in computer science fundamentals, programming, and data analysis.',
       coursework: [
-        'Statistics',
-        'Calculus',
-        'Linear Algebra',
-        'Research Methods',
+        'Data Structures',
+        'Object-Oriented Programming',
+        'Database Management',
+        'Software Engineering',
       ],
       icon: BookOpen,
     },
@@ -40,7 +39,7 @@ export function Education() {
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl mb-4 text-gray-900">Education</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Building a strong academic foundation in data science and analytics
+            Building a strong academic foundation in computer science and data analytics
           </p>
         </div>
 
