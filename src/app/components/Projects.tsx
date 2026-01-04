@@ -1,247 +1,115 @@
 import { motion } from 'motion/react';
-import { useInView } from 'react-intersection-observer';
 import { ExternalLink, Github } from 'lucide-react';
 
 export function Projects() {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
   const projects = [
     {
       title: 'S&P 500 Stock Performance Analysis',
-      description: 'Automated daily equity data ingestion using Python (yfinance, pandas, SQLAlchemy) and stored results in PostgreSQL for centralized access.',
-      tools: ['Python', 'yfinance', 'pandas', 'PostgreSQL', 'Power BI', 'DAX'],
-      details: [
-        'Optimized analytical queries with PostgreSQL (CTEs, Subqueries, Window Functions) to calculate returns, volatility, and trend indicators',
-        'Built an interactive Power BI dashboard with DAX measures (CALCULATE, DATESINPERIOD, TOPN) for dynamic filtering and sector-level comparison',
-        'Presented key performance metrics (avg return, win rate, volume trends) through color-coded KPIs for non-technical stakeholders',
-      ],
-      github: '#',
-      demo: '#',
+      description: 'Automated daily equity data pipeline with interactive Power BI dashboard for financial analysis and market insights.',
+      problem: 'Need for centralized, real-time stock market analysis with historical trend tracking',
+      approach: 'Built automated data ingestion pipeline using Python (yfinance, pandas, SQLAlchemy) and PostgreSQL database with optimized analytical queries',
+      tools: ['Python', 'PostgreSQL', 'Power BI', 'DAX', 'pandas', 'yfinance', 'SQLAlchemy'],
+      outcome: 'Created interactive dashboard with dynamic filtering and sector-level comparison, enabling non-technical stakeholders to interpret market behavior through color-coded KPIs and performance metrics',
+      demoLink: '#',
+      repoLink: '#',
     },
     {
       title: 'HR Employee Attrition & Performance Analytics',
-      description: 'Integrated HR data sources using Excel Power Query and pandas for data integration, processing employee records to create a master dataset for workforce analytics.',
+      description: 'Comprehensive workforce analytics solution for identifying attrition patterns and quantifying training ROI.',
+      problem: 'HR teams lacked visibility into attrition drivers and training effectiveness across departments',
+      approach: 'Integrated HR data sources using Excel Power Query and pandas, performed statistical analysis (correlation matrices, percentile calculations, cohort analysis)',
       tools: ['Excel', 'Power Query', 'pandas', 'NumPy', 'Seaborn', 'Matplotlib'],
-      details: [
-        'Developed a refreshable Excel workbook with dynamic pivot tables, enabling ongoing attrition analysis by department, tenure, and demographics',
-        'Performed statistical analysis using pandas and NumPy (correlation matrices, percentile calculations, cohort analysis) to quantify training ROI and identify high-risk employee segments',
-        'Created data visualizations using Seaborn and Matplotlib to translate complex HR metrics into actionable insights for strategic workforce planning',
-      ],
-      github: '#',
-      demo: '#',
+      outcome: 'Delivered refreshable Excel workbook with dynamic pivot tables and actionable data visualizations, supporting strategic workforce planning initiatives and high-risk employee identification',
+      demoLink: '#',
+      repoLink: '#',
     },
     {
       title: 'NYPL Menus Data Profiling and Cleaning',
-      description: 'Cleaned and organized a 500K+ record historical dataset using Python and OpenRefine, ensuring data accuracy for analysis of historical dining trends.',
-      tools: ['Python', 'OpenRefine', 'pandas'],
-      details: [
-        'Standardized data to resolve inconsistencies (nulls, whitespace, case errors), improving data integrity for research purposes',
-        'Produced data-quality improvement reports and visual workflows, adopted by the curation team to streamline future data-cleaning workflows',
-      ],
-      github: '#',
-      demo: '#',
+      description: 'Historical dataset standardization project processing 500K+ records for dining trend analysis.',
+      problem: 'Large historical dataset contained inconsistencies and quality issues preventing reliable analysis',
+      approach: 'Cleaned and organized dataset using Python and OpenRefine, standardizing data to resolve nulls, whitespace, and case errors',
+      tools: ['Python', 'OpenRefine', 'Data Quality Analysis'],
+      outcome: 'Produced data-quality improvement reports and visual workflows adopted by curation team to streamline future data-cleaning workflows',
+      demoLink: '#',
+      repoLink: '#',
     },
   ];
 
   return (
-    <section id="projects" className="py-24 md:py-32 bg-white dark:bg-gray-950 px-6 relative overflow-hidden">
-      {/* Flowing Wave Gradient Pattern */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Light Mode Waves */}
-        <div className="absolute inset-0 dark:opacity-0 transition-opacity duration-500">
-          <motion.div
-            animate={{ 
-              opacity: [0.5, 0.7, 0.5],
-              scale: [1.05, 1.2, 1.05],
-              rotate: [0, 20, 0],
-              x: [0, 70, 0],
-              y: [0, -60, 0],
-            }}
-            transition={{
-              duration: 14,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-            className="absolute top-1/4 left-0 w-[650px] h-[650px]"
-            style={{
-              background: 'radial-gradient(ellipse at center, rgba(147, 51, 234, 0.45) 0%, rgba(59, 130, 246, 0.4) 40%, rgba(236, 72, 153, 0.3) 70%, transparent 100%)',
-              filter: 'blur(55px)',
-            }}
-          />
-          
-          <motion.div
-            animate={{ 
-              opacity: [0.45, 0.65, 0.45],
-              scale: [1, 1.18, 1],
-              rotate: [0, -15, 0],
-              x: [0, -50, 0],
-              y: [0, 50, 0],
-            }}
-            transition={{
-              duration: 17,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 0.8
-            }}
-            className="absolute bottom-1/4 right-0 w-[700px] h-[700px]"
-            style={{
-              background: 'radial-gradient(circle at center, rgba(59, 130, 246, 0.5) 0%, rgba(168, 85, 247, 0.4) 45%, rgba(236, 72, 153, 0.3) 75%, transparent 100%)',
-              filter: 'blur(62px)',
-            }}
-          />
-
-          <motion.div
-            animate={{ 
-              opacity: [0.4, 0.6, 0.4],
-              scale: [1.08, 1.22, 1.08],
-              rotate: [0, 10, 0],
-              x: [0, 40, 0],
-              y: [0, -40, 0],
-            }}
-            transition={{
-              duration: 19,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 1.5
-            }}
-            className="absolute top-1/2 right-1/3 w-[550px] h-[550px]"
-            style={{
-              background: 'radial-gradient(circle at center, rgba(236, 72, 153, 0.45) 0%, rgba(147, 51, 234, 0.35) 50%, rgba(59, 130, 246, 0.25) 80%, transparent 100%)',
-              filter: 'blur(70px)',
-            }}
-          />
-        </div>
-
-        {/* Dark Mode Waves */}
-        <div className="absolute inset-0 opacity-0 dark:opacity-100 transition-opacity duration-500">
-          <motion.div
-            animate={{ 
-              opacity: [0.6, 0.8, 0.6],
-              scale: [1.05, 1.2, 1.05],
-              rotate: [0, 20, 0],
-              x: [0, 70, 0],
-              y: [0, -60, 0],
-            }}
-            transition={{
-              duration: 14,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-            className="absolute top-1/4 left-0 w-[700px] h-[700px]"
-            style={{
-              background: 'radial-gradient(ellipse at center, rgba(168, 85, 247, 0.65) 0%, rgba(96, 165, 250, 0.55) 35%, rgba(219, 39, 119, 0.45) 65%, transparent 100%)',
-              filter: 'blur(72px)',
-              mixBlendMode: 'screen',
-            }}
-          />
-          
-          <motion.div
-            animate={{ 
-              opacity: [0.55, 0.75, 0.55],
-              scale: [1, 1.18, 1],
-              rotate: [0, -15, 0],
-              x: [0, -50, 0],
-              y: [0, 50, 0],
-            }}
-            transition={{
-              duration: 17,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 0.8
-            }}
-            className="absolute bottom-1/4 right-0 w-[750px] h-[750px]"
-            style={{
-              background: 'radial-gradient(circle at center, rgba(59, 130, 246, 0.7) 0%, rgba(147, 51, 234, 0.6) 40%, rgba(236, 72, 153, 0.5) 70%, transparent 100%)',
-              filter: 'blur(78px)',
-              mixBlendMode: 'screen',
-            }}
-          />
-
-          <motion.div
-            animate={{ 
-              opacity: [0.5, 0.7, 0.5],
-              scale: [1.08, 1.22, 1.08],
-              rotate: [0, 10, 0],
-              x: [0, 40, 0],
-              y: [0, -40, 0],
-            }}
-            transition={{
-              duration: 19,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 1.5
-            }}
-            className="absolute top-1/2 right-1/3 w-[600px] h-[600px]"
-            style={{
-              background: 'radial-gradient(circle at center, rgba(236, 72, 153, 0.65) 0%, rgba(168, 85, 247, 0.55) 45%, rgba(59, 130, 246, 0.4) 75%, transparent 100%)',
-              filter: 'blur(80px)',
-              mixBlendMode: 'screen',
-            }}
-          />
-        </div>
-      </div>
-
-      <div className="max-w-6xl mx-auto relative z-10">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+    <section id="projects" className="py-32 px-6 sm:px-8 lg:px-12">
+      <div className="max-w-5xl mx-auto">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-sm uppercase tracking-widest text-black/40 dark:text-white/40 mb-12"
         >
-          <h2 className="text-center text-gray-900 dark:text-white mb-4 text-4xl md:text-5xl font-bold">Featured Projects</h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6"></div>
-          <p className="text-center text-gray-600 dark:text-gray-300 text-lg max-w-2xl mx-auto mb-12">
-            A selection of projects demonstrating end-to-end data solutions, from ML models to production systems.
-          </p>
+          Featured Projects
+        </motion.h2>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {projects.map((project, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="group p-8 border border-black/5 dark:border-white/5 rounded-2xl hover:border-black/10 dark:hover:border-white/10 transition-colors"
+            >
+              <h3 className="text-lg mb-3 text-black dark:text-white">{project.title}</h3>
+              <p className="text-sm text-black/50 dark:text-white/50 mb-6 leading-relaxed">{project.description}</p>
+              
+              <div className="space-y-4 mb-6">
+                <div>
+                  <span className="text-xs uppercase tracking-wider text-black/40 dark:text-white/40">Problem</span>
+                  <p className="text-sm text-black/60 dark:text-white/60 mt-1">{project.problem}</p>
+                </div>
+                <div>
+                  <span className="text-xs uppercase tracking-wider text-black/40 dark:text-white/40">Approach</span>
+                  <p className="text-sm text-black/60 dark:text-white/60 mt-1">{project.approach}</p>
+                </div>
+                <div>
+                  <span className="text-xs uppercase tracking-wider text-black/40 dark:text-white/40">Outcome</span>
+                  <p className="text-sm text-black/60 dark:text-white/60 mt-1">{project.outcome}</p>
+                </div>
+              </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((project, index) => (
-              <motion.div
-                key={project.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
-                className="bg-white/40 dark:bg-gray-900/40 backdrop-blur-sm rounded-xl p-6 hover:bg-white/60 dark:hover:bg-gray-900/60 transition-all duration-300 group border border-gray-200/30 dark:border-gray-800/30 hover:border-blue-300/50 dark:hover:border-blue-700/50 hover:shadow-lg"
-              >
-                <h3 className="text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200 font-bold text-xl">
-                  {project.title}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">{project.description}</p>
-                
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tools.map((tool) => (
+              <div className="mb-6">
+                <div className="flex flex-wrap gap-2">
+                  {project.tools.map((tool, idx) => (
                     <span
-                      key={tool}
-                      className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium"
+                      key={idx}
+                      className="px-3 py-1 bg-black/5 dark:bg-white/5 text-black/50 dark:text-white/50 rounded-full text-xs"
                     >
                       {tool}
                     </span>
                   ))}
                 </div>
+              </div>
 
-                <div className="flex gap-4 pt-4 border-t border-gray-100 dark:border-gray-800">
-                  <a
-                    href={project.github}
-                    className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 font-medium"
-                  >
-                    <Github size={18} />
-                    <span>Code</span>
-                  </a>
-                  <a
-                    href={project.demo}
-                    className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-200 font-medium"
-                  >
-                    <ExternalLink size={18} />
-                    <span>Demo</span>
-                  </a>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+              <div className="flex gap-4">
+                <a
+                  href={project.demoLink}
+                  className="inline-flex items-center gap-1.5 text-xs text-black/50 dark:text-white/50 hover:text-black dark:hover:text-white transition-colors"
+                  onClick={(e) => e.preventDefault()}
+                >
+                  <ExternalLink className="w-3.5 h-3.5" />
+                  <span>Demo</span>
+                </a>
+                <a
+                  href={project.repoLink}
+                  className="inline-flex items-center gap-1.5 text-xs text-black/50 dark:text-white/50 hover:text-black dark:hover:text-white transition-colors"
+                  onClick={(e) => e.preventDefault()}
+                >
+                  <Github className="w-3.5 h-3.5" />
+                  <span>Code</span>
+                </a>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
