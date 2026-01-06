@@ -27,9 +27,10 @@ export function Experience() {
   ];
 
   return (
-    <section id="experience" className="py-32 px-6 sm:px-8 lg:px-12">
+    <section id="experience" className="py-32 px-6 sm:px-8 lg:px-12" aria-labelledby="experience-heading">
       <div className="max-w-3xl mx-auto">
         <motion.h2
+          id="experience-heading"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -41,18 +42,23 @@ export function Experience() {
         
         <div className="space-y-16">
           {experiences.map((exp, index) => (
-            <motion.div
+            <motion.article
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ x: 5 }}
+              className="group transition-all duration-300 p-8 rounded-2xl backdrop-blur-sm bg-white/30 dark:bg-black/30 border border-white/20 dark:border-white/10 hover:border-purple-500/30 dark:hover:border-blue-500/30"
+              style={{
+                boxShadow: '0 4px 24px 0 rgba(168, 85, 247, 0.05)',
+              }}
             >
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-6">
                 <div>
-                  <h3 className="text-xl text-black dark:text-white mb-1">{exp.title}</h3>
+                  <h3 className="text-xl text-black dark:text-white mb-1 transition-colors duration-300 group-hover:text-black/80 dark:group-hover:text-white/80">{exp.title}</h3>
                   <p className="text-sm text-black/50 dark:text-white/50">
-                    {exp.company} · {exp.location}
+                    {exp.company} <span aria-hidden="true">·</span> {exp.location}
                   </p>
                 </div>
                 <span className="text-sm text-black/40 dark:text-white/40 mt-2 sm:mt-0">
@@ -61,12 +67,19 @@ export function Experience() {
               </div>
               <ul className="space-y-3">
                 {exp.achievements.map((achievement, idx) => (
-                  <li key={idx} className="text-sm text-black/60 dark:text-white/60 leading-relaxed">
+                  <motion.li 
+                    key={idx} 
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.1 + idx * 0.1 }}
+                    className="text-sm text-black/60 dark:text-white/60 leading-relaxed"
+                  >
                     • {achievement}
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
       </div>

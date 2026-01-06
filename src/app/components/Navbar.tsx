@@ -51,9 +51,14 @@ export function Navbar({ theme, toggleTheme }: NavbarProps) {
     <nav
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/80 dark:bg-black/80 backdrop-blur-md'
-          : 'bg-white/50 dark:bg-black/50 backdrop-blur-sm'
+          ? 'bg-white/70 dark:bg-black/70 backdrop-blur-xl border-b border-white/20 dark:border-white/10'
+          : 'bg-white/40 dark:bg-black/40 backdrop-blur-lg'
       }`}
+      role="navigation"
+      aria-label="Main navigation"
+      style={{
+        boxShadow: isScrolled ? '0 8px 32px 0 rgba(168, 85, 247, 0.1)' : 'none',
+      }}
     >
       <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="flex items-center justify-between h-20">
@@ -64,9 +69,10 @@ export function Navbar({ theme, toggleTheme }: NavbarProps) {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            className="tracking-tight text-black dark:text-white hover:opacity-60 transition-opacity"
+            className="tracking-tight text-black dark:text-white hover:opacity-60 transition-opacity focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white focus:ring-offset-2 rounded-sm"
+            aria-label="Matthew Nicol - Return to top"
           >
-            DP
+            MN
           </a>
 
           {/* Desktop Navigation */}
@@ -76,31 +82,33 @@ export function Navbar({ theme, toggleTheme }: NavbarProps) {
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="text-sm text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors"
+                className="text-sm text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white focus:ring-offset-2 rounded-sm relative group/nav"
               >
                 {link.label}
+                <span className="absolute bottom-0 left-0 w-0 h-px bg-black dark:bg-white transition-all duration-300 group-hover/nav:w-full" />
               </a>
             ))}
             
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
-              aria-label="Toggle theme"
+              className="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/5 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white focus:ring-offset-2 hover:scale-110"
+              aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
             >
               {theme === 'light' ? (
-                <Moon className="w-4 h-4 text-black/60" />
+                <Moon className="w-4 h-4 text-black/60 transition-transform duration-300 hover:rotate-12" aria-hidden="true" />
               ) : (
-                <Sun className="w-4 h-4 text-white/60" />
+                <Sun className="w-4 h-4 text-white/60 transition-transform duration-300 hover:rotate-12" aria-hidden="true" />
               )}
             </button>
 
             {/* Resume CTA */}
             <button
               onClick={handleResumeDownload}
-              className="flex items-center gap-2 px-5 py-2 bg-black dark:bg-white text-white dark:text-black rounded-full hover:opacity-80 transition-opacity text-sm"
+              className="flex items-center gap-2 px-5 py-2 bg-black dark:bg-white text-white dark:text-black rounded-full hover:opacity-80 transition-all duration-300 text-sm focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white focus:ring-offset-2 hover:scale-105 hover:shadow-lg hover:shadow-black/10 dark:hover:shadow-white/10"
+              aria-label="Download resume"
             >
-              <Download className="w-3.5 h-3.5" />
+              <Download className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-y-0.5" aria-hidden="true" />
               <span>Resume</span>
             </button>
           </div>
@@ -109,30 +117,33 @@ export function Navbar({ theme, toggleTheme }: NavbarProps) {
           <div className="flex items-center gap-3 md:hidden">
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
-              aria-label="Toggle theme"
+              className="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/5 transition-colors focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white focus:ring-offset-2"
+              aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
             >
               {theme === 'light' ? (
-                <Moon className="w-4 h-4 text-black/60" />
+                <Moon className="w-4 h-4 text-black/60" aria-hidden="true" />
               ) : (
-                <Sun className="w-4 h-4 text-white/60" />
+                <Sun className="w-4 h-4 text-white/60" aria-hidden="true" />
               )}
             </button>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
-              aria-label="Toggle menu"
+              className="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/5 transition-colors focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white focus:ring-offset-2"
+              aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+              aria-expanded={isMenuOpen}
             >
               <div className="relative w-5 h-5">
                 <Menu
                   className={`w-5 h-5 text-black/60 dark:text-white/60 absolute inset-0 transition-all duration-300 ${
                     isMenuOpen ? 'opacity-0 rotate-90' : 'opacity-100 rotate-0'
                   }`}
+                  aria-hidden="true"
                 />
                 <X
                   className={`w-5 h-5 text-black/60 dark:text-white/60 absolute inset-0 transition-all duration-300 ${
                     isMenuOpen ? 'opacity-100 rotate-0' : 'opacity-0 -rotate-90'
                   }`}
+                  aria-hidden="true"
                 />
               </div>
             </button>
@@ -145,6 +156,7 @@ export function Navbar({ theme, toggleTheme }: NavbarProps) {
         className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
           isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
         }`}
+        aria-hidden={!isMenuOpen}
       >
         <div className="px-6 py-6 space-y-1 bg-white/95 dark:bg-black/95 backdrop-blur-md border-t border-black/5 dark:border-white/5">
           {navLinks.map((link) => (
@@ -152,16 +164,17 @@ export function Navbar({ theme, toggleTheme }: NavbarProps) {
               key={link.href}
               href={link.href}
               onClick={(e) => handleNavClick(e, link.href)}
-              className="block px-4 py-3 text-sm text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 rounded-lg transition-colors"
+              className="block px-4 py-3 text-sm text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white focus:ring-offset-2"
             >
               {link.label}
             </a>
           ))}
           <button
             onClick={handleResumeDownload}
-            className="w-full flex items-center justify-center gap-2 px-4 py-3 mt-2 bg-black dark:bg-white text-white dark:text-black rounded-lg hover:opacity-80 transition-opacity text-sm"
+            className="w-full flex items-center justify-center gap-2 px-4 py-3 mt-2 bg-black dark:bg-white text-white dark:text-black rounded-lg hover:opacity-80 transition-opacity text-sm focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white focus:ring-offset-2"
+            aria-label="Download resume"
           >
-            <Download className="w-3.5 h-3.5" />
+            <Download className="w-3.5 h-3.5" aria-hidden="true" />
             <span>Download Resume</span>
           </button>
         </div>

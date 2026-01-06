@@ -9,6 +9,7 @@ import { Skills } from './components/Skills';
 import { Projects } from './components/Projects';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
+import { ParticleBackground } from './components/ParticleBackground';
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -35,9 +36,17 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-white dark:bg-black transition-colors duration-300">
+    <div className="min-h-screen bg-white dark:bg-black transition-colors duration-300 relative">
+      {/* Skip to main content link for accessibility */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-black dark:focus:bg-white focus:text-white dark:focus:text-black focus:rounded-lg focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white"
+      >
+        Skip to main content
+      </a>
+      <ParticleBackground />
       <Navbar theme={theme} toggleTheme={toggleTheme} />
-      <main>
+      <main id="main-content" className="relative z-10">
         <Hero />
         <About />
         <Education />
