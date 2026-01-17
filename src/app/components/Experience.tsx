@@ -49,7 +49,8 @@ export function Experience() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ x: 5 }}
-              className="group transition-all duration-300 p-8 rounded-2xl backdrop-blur-sm bg-white/30 dark:bg-black/30 border border-white/20 dark:border-white/10 hover:border-purple-500/30 dark:hover:border-blue-500/30"
+              transition={{ duration: 0.2 }}
+              className="group transition-all duration-200 p-8 rounded-2xl backdrop-blur-sm bg-white/30 dark:bg-black/30 border border-white/20 dark:border-white/10 hover:border-purple-500/30 dark:hover:border-blue-500/30"
               style={{
                 boxShadow: '0 4px 24px 0 rgba(168, 85, 247, 0.05)',
               }}

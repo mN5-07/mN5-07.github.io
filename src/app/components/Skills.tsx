@@ -24,7 +24,7 @@ export function Skills() {
     },
     {
       category: 'Currently Learning',
-      skills: ['Machine Learning', 'Apache Spark', 'AWS', 'Docker', 'Data Engineering'],
+      skills: ['AWS', 'scikit-learn', 'PyTorch', 'Tensorflow', 'Polars'],
     },
   ];
 
@@ -51,7 +51,8 @@ export function Skills() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.05 }}
               whileHover={{ y: -5 }}
-              className="group p-6 rounded-2xl backdrop-blur-sm bg-white/30 dark:bg-black/30 border border-white/20 dark:border-white/10 hover:border-purple-500/30 dark:hover:border-blue-500/30 transition-all duration-300"
+              transition={{ duration: 0.2 }}
+              className="group p-6 rounded-2xl backdrop-blur-sm bg-white/30 dark:bg-black/30 border border-white/20 dark:border-white/10 hover:border-purple-500/30 dark:hover:border-blue-500/30 transition-all duration-200"
               style={{
                 boxShadow: '0 4px 24px 0 rgba(59, 130, 246, 0.05)',
               }}
@@ -68,7 +69,7 @@ export function Skills() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.3, delay: index * 0.05 + idx * 0.05 }}
                     whileHover={{ x: 5 }}
-                    className="text-sm text-black/50 dark:text-white/50 transition-all duration-200 hover:text-black/70 dark:hover:text-white/70"
+                    className="text-sm text-black/50 dark:text-white/50 transition-all duration-150 hover:text-black/70 dark:hover:text-white/70 cursor-default"
                   >
                     {skill}
                   </motion.li>

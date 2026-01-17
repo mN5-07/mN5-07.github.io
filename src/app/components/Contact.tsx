@@ -48,7 +48,8 @@ export function Contact() {
               href="mailto:mrnicol2@illinois.edu"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full transition-all duration-300 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 dark:focus:ring-blue-500 focus:ring-offset-2 hover:shadow-xl hover:shadow-purple-500/30 dark:hover:shadow-blue-500/30"
+              transition={{ duration: 0.2 }}
+              className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full transition-all duration-200 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 dark:focus:ring-blue-500 focus:ring-offset-2 hover:shadow-xl hover:shadow-purple-500/30 dark:hover:shadow-blue-500/30"
               aria-label="Send email to mrnicol2@illinois.edu"
             >
               <Mail className="w-4 h-4" aria-hidden="true" />
@@ -66,24 +67,26 @@ export function Contact() {
             aria-label="Social media links"
           >
             <motion.a
-              href="https://linkedin.com/in/matthew-nicol"
+              href="https://www.linkedin.com/in/mnicol07/"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.1, y: -3 }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center justify-center w-11 h-11 rounded-full backdrop-blur-sm bg-white/50 dark:bg-black/50 border border-white/30 dark:border-white/20 text-black/50 dark:text-white/50 hover:text-black dark:hover:text-white hover:border-purple-500/50 dark:hover:border-blue-500/50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white focus:ring-offset-2 hover:shadow-lg hover:shadow-purple-500/20 dark:hover:shadow-blue-500/20"
+              transition={{ duration: 0.2 }}
+              className="flex items-center justify-center w-11 h-11 rounded-full backdrop-blur-sm bg-white/50 dark:bg-black/50 border border-white/30 dark:border-white/20 text-black/50 dark:text-white/50 hover:text-black dark:hover:text-white hover:border-purple-500/50 dark:hover:border-blue-500/50 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white focus:ring-offset-2 hover:shadow-lg hover:shadow-purple-500/20 dark:hover:shadow-blue-500/20"
               aria-label="Visit Matthew Nicol's LinkedIn profile"
               role="listitem"
             >
               <Linkedin className="w-4 h-4" aria-hidden="true" />
             </motion.a>
             <motion.a
-              href="https://github.com/matthew-nicol"
+              href="https://github.com/mN5-07/"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.1, y: -3 }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center justify-center w-11 h-11 rounded-full backdrop-blur-sm bg-white/50 dark:bg-black/50 border border-white/30 dark:border-white/20 text-black/50 dark:text-white/50 hover:text-black dark:hover:text-white hover:border-purple-500/50 dark:hover:border-blue-500/50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white focus:ring-offset-2 hover:shadow-lg hover:shadow-purple-500/20 dark:hover:shadow-blue-500/20"
+              transition={{ duration: 0.2 }}
+              className="flex items-center justify-center w-11 h-11 rounded-full backdrop-blur-sm bg-white/50 dark:bg-black/50 border border-white/30 dark:border-white/20 text-black/50 dark:text-white/50 hover:text-black dark:hover:text-white hover:border-purple-500/50 dark:hover:border-blue-500/50 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white focus:ring-offset-2 hover:shadow-lg hover:shadow-purple-500/20 dark:hover:shadow-blue-500/20"
               aria-label="Visit Matthew Nicol's GitHub profile"
               role="listitem"
             >

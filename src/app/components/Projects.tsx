@@ -5,6 +5,18 @@ import { ImageWithFallback } from './figma/ImageWithFallback';
 export function Projects() {
   const projects = [
     {
+      title: 'AI & Semiconductor Stock Dashboard',
+      description: 'Interactive Streamlit dashboard analyzing performance, market concentration, and risk of major AI-related and semiconductor stocks (2025–2026 focus), compared to the S&P 500.',
+      problem: 'Lack of accessible, visual tools to understand how a handful of AI/tech stocks drive broader market performance and concentration risks.',
+      approach: 'Built a modular Streamlit app using yfinance for real-time/historical data, pandas/numpy for calculations (compounded returns, volatility), and Plotly for interactive charts. Included clean dark theme, custom tickers, and clear explanations.',
+      tools: ['Streamlit', 'yfinance', 'pandas', 'numpy', 'Plotly'],
+      outcome: 'Created a clean, educational dashboard with cumulative returns, market cap concentration, contribution analysis, correlation, and basic risk metrics — fully reproducible and portfolio-ready.',
+      image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdG9jayUyMG1hcmtldCUyMGRhc2hib2FyZHxlbnwxfHx8fDE3Njc2NTg5MjB8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+      imageAlt: 'Stock market dashboard showing charts and financial metrics',
+      demoLink: 'https://ai-market-concentration-dashboard.streamlit.app/',
+      repoLink: 'https://github.com/mN5-07/ai-market-concentration-dashboard',
+    },
+    {
       title: 'S&P 500 Stock Performance Analysis',
       description: 'Automated daily equity data pipeline with interactive Power BI dashboard for financial analysis and market insights.',
       problem: 'Need for centralized, real-time stock market analysis with historical trend tracking',
@@ -52,6 +64,30 @@ export function Projects() {
       demoLink: '#',
       repoLink: '#',
     },
+    {
+      title: 'Portfolio Website',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      problem: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
+      approach: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur',
+      tools: ['React', 'Tailwind CSS', 'Figma', 'TypeScript'],
+      outcome: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+      image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWJzaXRlJTIwZGV',
+      imageAlt: 'Laptop displaying a personal portfolio website',
+      demoLink: '#',
+      repoLink: '#',
+    },
+    {
+      "title": "Breast Cancer Diagnosis Prediction",
+      "description": "A complete end-to-end machine learning project using the classic UCI Breast Cancer Wisconsin (Diagnostic) dataset to classify tumors as malignant or benign based on cell nuclei features extracted from fine needle aspirate images.",
+      "problem": "Breast cancer diagnosis from fine needle aspiration (FNA) requires accurate, interpretable classification to support early detection and reduce unnecessary procedures. The challenge is to build reliable models from high-dimensional cellular features while understanding which characteristics most strongly indicate malignancy.",
+      "approach": "Followed a full ML pipeline in Jupyter Notebooks: exploratory data analysis, preprocessing (scaling, encoding, train-test split), training and comparing multiple classifiers (Logistic Regression, Decision Tree, Random Forest, SVM), robust evaluation (accuracy, precision/recall/F1, ROC-AUC, cross-validation), and interpretability via permutation importance and built-in feature rankings to uncover key malignancy indicators.",
+      "tools": ["Python", "scikit-learn", "pandas", "NumPy", "Matplotlib", "Seaborn", "Jupyter Notebook"],
+      "outcome": "Achieved 96–98%+ test accuracy and near-perfect AUC with top models (SVM Linear & Random Forest). Key insight: extreme nuclear irregularities ('worst' features like concavity_worst, texture_worst, symmetry_worst) dominate predictions — aligning with medical knowledge of malignant cell morphology. Demonstrated strong model interpretability and reliability for a healthcare classification task.",
+      "image": "https://miro.medium.com/v2/resize:fit:1400/1*slExkyoge8JUNOIyz-cj-w.png",
+      "imageAlt": "Visualization of feature importance and model performance in breast cancer classification project",
+      "demoLink": "#",  // Replace with GitHub Pages / Streamlit / Colab link if you deploy one
+      "repoLink": "https://github.com/mN5-07/breast-cancer-diagnostic-classifier"   // Replace with your actual GitHub repo URL
+    }
   ];
 
   return (

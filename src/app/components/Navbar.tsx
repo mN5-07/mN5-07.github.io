@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Download, Sun, Moon } from 'lucide-react';
+import { motion } from 'framer-motion'; // assuming framer-motion
 
 interface NavbarProps {
   theme: 'light' | 'dark';
@@ -43,8 +44,13 @@ export function Navbar({ theme, toggleTheme }: NavbarProps) {
   };
 
   const handleResumeDownload = () => {
-    // In a real app, this would trigger an actual PDF download
-    alert('Resume download would start here. Replace with your actual resume PDF link.');
+    const resumePath = '/stuff/resume10_25.pdf'; // relative to public folder
+    const link = document.createElement('a');
+    link.href = resumePath;
+    link.download = 'Matthew_Nicol_Resume.pdf'; // clean filename for the user
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -88,7 +94,7 @@ export function Navbar({ theme, toggleTheme }: NavbarProps) {
                 <span className="absolute bottom-0 left-0 w-0 h-px bg-black dark:bg-white transition-all duration-300 group-hover/nav:w-full" />
               </a>
             ))}
-            
+
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
@@ -102,18 +108,21 @@ export function Navbar({ theme, toggleTheme }: NavbarProps) {
               )}
             </button>
 
-            {/* Resume CTA */}
-            <button
+            {/* Resume CTA - Desktop */}
+            <motion.button
               onClick={handleResumeDownload}
-              className="flex items-center gap-2 px-5 py-2 bg-black dark:bg-white text-white dark:text-black rounded-full hover:opacity-80 transition-all duration-300 text-sm focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white focus:ring-offset-2 hover:scale-105 hover:shadow-lg hover:shadow-black/10 dark:hover:shadow-white/10"
+              whileHover={{ scale: 1.05, y: -1 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.2 }}
+              className="px-4 py-2 text-sm bg-black dark:bg-white text-white dark:text-black rounded-full hover:bg-black/80 dark:hover:bg-white/80 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white focus:ring-offset-2 hover:shadow-lg flex items-center gap-2"
               aria-label="Download resume"
             >
-              <Download className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-y-0.5" aria-hidden="true" />
-              <span>Resume</span>
-            </button>
+              <Download className="w-3.5 h-3.5" aria-hidden="true" />
+              Resume
+            </motion.button>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Controls */}
           <div className="flex items-center gap-3 md:hidden">
             <button
               onClick={toggleTheme}
@@ -126,6 +135,7 @@ export function Navbar({ theme, toggleTheme }: NavbarProps) {
                 <Sun className="w-4 h-4 text-white/60" aria-hidden="true" />
               )}
             </button>
+
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/5 transition-colors focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white focus:ring-offset-2"
@@ -169,9 +179,10 @@ export function Navbar({ theme, toggleTheme }: NavbarProps) {
               {link.label}
             </a>
           ))}
+
           <button
             onClick={handleResumeDownload}
-            className="w-full flex items-center justify-center gap-2 px-4 py-3 mt-2 bg-black dark:bg-white text-white dark:text-black rounded-lg hover:opacity-80 transition-opacity text-sm focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white focus:ring-offset-2"
+            className="w-full flex items-center justify-center gap-2 px-4 py-3 mt-4 bg-black dark:bg-white text-white dark:text-black rounded-lg hover:opacity-80 transition-opacity text-sm focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white focus:ring-offset-2"
             aria-label="Download resume"
           >
             <Download className="w-3.5 h-3.5" aria-hidden="true" />
